@@ -1,7 +1,7 @@
 import React from 'react';
-import './DevicePage.css';
+import './Devices.css';
 
-function DevicePage() {
+function Devices() {
   console.log('device');
   return (
     <div>
@@ -10,4 +10,4 @@ function DevicePage() {
   );
 }
 
-export default DevicePage;
+export default Devices;
