@@ -39,23 +39,23 @@ function DeviceList() {
               </Flipped>
               <div className="description">
                 <Flipped
-                  flipId={`description-${index}-${1}`}
+                  flipId={`description-${index}-${0}`}
                   stagger="card-content"
                   shouldFlip={shouldFlip(index)}
                   delayUntil={index}
                 >
                   <span>{`${device.make} ${device.model}`}</span>
                 </Flipped>
-                <Flipped
-                  flipId={`description-${index}-${2}`}
+                {/* <Flipped
+                  flipId={`description-${index}-${1}`}
                   stagger="card-content"
                   shouldFlip={shouldFlip(index)}
                   delayUntil={index}
                 >
                   <span>{`${device.color} ${device.size}`}</span>
-                </Flipped>
+                </Flipped> */}
                 <Flipped
-                  flipId={`description-${index}-${3}`}
+                  flipId={`description-${index}-${2}`}
                   stagger="card-content"
                   shouldFlip={shouldFlip(index)}
                   delayUntil={index}
@@ -96,23 +96,23 @@ function DeviceList() {
               </Flipped>
               <div className="description">
                 <Flipped
-                  flipId={`description-${index}-${1}`}
+                  flipId={`description-${index}-${0}`}
                   stagger="card-content"
                   shouldFlip={shouldFlip(index)}
                   delayUntil={index}
                 >
                   <span>{`${device.make} ${device.model}`}</span>
                 </Flipped>
-                <Flipped
-                  flipId={`description-${index}-${2}`}
+                {/* <Flipped
+                  flipId={`description-${index}-${1}`}
                   stagger="card-content"
                   shouldFlip={shouldFlip(index)}
                   delayUntil={index}
                 >
                   <span>{`${device.color} ${device.size}`}</span>
-                </Flipped>
+                </Flipped> */}
                 <Flipped
-                  flipId={`description-${index}-${3}`}
+                  flipId={`description-${index}-${2}`}
                   stagger="card-content"
                   shouldFlip={shouldFlip(index)}
                   delayUntil={index}
