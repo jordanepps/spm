@@ -1,13 +1,15 @@
 header {
-    /* margin: 15px 10px; */
-    /* display: flex; */
+    padding: 15px 0;
+    width: 100%;
+    position: fixed;
 }
 
 .logo {
-    /* margin: 0; */
+    float: left;
+    position: relative;
+    left: 10px;
 }
 
 .logo img {
-    width: 100%;
-    max-width: 300px;
+    max-width: 250px;
 }
