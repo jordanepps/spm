@@ -68,7 +68,59 @@ function DeviceList() {
   }
 
   function ExpandedListItem({ device, index, onClick }) {
-    return <div>Expanded{device.model}</div>;
+    return (
+      <Flipped
+        flipId={`listItem-${index}`}
+        stagger="card"
+        onStart={el => {
+          setTimeout(() => {
+            el.classList.add('animated-in');
+          }, 400);
+        }}
+      >
+        <div className="expandedListItem" onClick={() => onClick(index)}>
+          <Flipped inverseFlipId={`listItem-${index}`}>
+            <div className="expandedListContent">
+              <Flipped
+                flipId={`avatar-${index}`}
+                stagger="card-content"
+                shouldFlip={shouldFlip(index)}
+                delayUntil={`listItem-${index}`}
+              >
+                <div className="avatar avatarExpanded" />
+              </Flipped>
+              <div className="description">
+                <Flipped
+                  flipId={`description-${index}-${1}`}
+                  stagger="card-content"
+                  shouldFlip={shouldFlip(index)}
+                  delayUntil={index}
+                >
+                  <span>{`${device.make} ${device.model}`}</span>
+                </Flipped>
+                <Flipped
+                  flipId={`description-${index}-${2}`}
+                  stagger="card-content"
+                  shouldFlip={shouldFlip(index)}
+                  delayUntil={index}
+                >
+                  <span>{`${device.color} ${device.size}`}</span>
+                </Flipped>
+                <Flipped
+                  flipId={`description-${index}-${3}`}
+                  stagger="card-content"
+                  shouldFlip={shouldFlip(index)}
+                  delayUntil={index}
+                >
+                  <span>{`$${device.price}.00 @ ${device.location}`}</span>
+                </Flipped>
+              </div>
+              <div className="additional-content">{device.condition}</div>
+            </div>
+          </Flipped>
+        </div>
+      </Flipped>
+    );
   }
 
   return (
