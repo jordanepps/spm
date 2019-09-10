@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Flipper, Flipped } from 'react-flip-toolkit';
 import './DeviceList.css';
+import iphone from '../../img/apple-iphone-6-space-gray.jpg';
 
 import device from '../../TESTSTORE';
 
 function DeviceList() {
-  console.log(Object.keys(device[0]).map((key, index) => key));
+  //   console.log(Object.keys(device[0]).map((key, index) => key));
   const [focused, setFocused] = useState(null);
 
   //RENAME OR REFACTOR LATER
@@ -32,7 +33,9 @@ function DeviceList() {
                 shouldFlip={shouldFlip(index)}
                 delayUntil={`listItem-${index}`}
               >
-                <div className="avatar" />
+                <div className="avatar">
+                  <img src={iphone} alt="iphone" />
+                </div>
               </Flipped>
               <div className="description">
                 <Flipped
@@ -87,7 +90,9 @@ function DeviceList() {
                 shouldFlip={shouldFlip(index)}
                 delayUntil={`listItem-${index}`}
               >
-                <div className="avatar avatarExpanded" />
+                <div className="avatar avatar-expanded">
+                  <img src={iphone} alt="iphone" />
+                </div>
               </Flipped>
               <div className="description">
                 <Flipped

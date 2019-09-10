@@ -37,15 +37,17 @@
     width: 4rem;
     height: 4rem;
     border-radius: 100px;
-    background-color: grey;
     margin-right: 2rem;
 }
 
-.avatarExpanded {
+.avatar img {
+    width: 100%;
+}
+
+.avatar-expanded {
     width: 8rem;
     height: 8rem;
-    margin-right: 0;
-    margin-bottom: 1rem;
+    margin: auto;
 }
 
 .description>div {
