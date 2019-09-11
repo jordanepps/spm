@@ -4,7 +4,7 @@ import './Devices.css';
 
 function Devices() {
   return (
-    <div>
+    <div className="device-container">
       <h1>Devices for sale</h1>
       <form>
         <div className="sort-container">
