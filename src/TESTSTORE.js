@@ -34,6 +34,24 @@ const phone = [
     size: '32 GB',
     location: 'red bank',
     condition: 'good condition'
+  },
+  {
+    make: 'Apple',
+    model: 'iPhone 11 Pro Max',
+    color: 'Gold',
+    price: 599,
+    size: '64 GB',
+    location: 'gervais',
+    condition: 'brand new'
+  },
+  {
+    make: 'Samsung',
+    model: 'Galaxy Note 9',
+    color: 'Black',
+    price: 499,
+    size: '64 GB',
+    location: 'garners ferry',
+    condition: 'light scratches'
   }
 ];
 
