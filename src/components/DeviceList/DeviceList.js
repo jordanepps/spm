@@ -45,18 +45,10 @@ function DeviceList() {
                   delayUntil={index}
                 >
                   <div>
-                    <h2>{`${device.make} ${device.model}`}</h2>
+                    <h2 className="device-make">{device.make}</h2>
+                    <h3 className="device-model">{device.model}</h3>
                   </div>
-                  {/* <span>{`${device.make} ${device.model}`}</span> */}
                 </Flipped>
-                {/* <Flipped
-                  flipId={`description-${index}-${1}`}
-                  stagger="card-content"
-                  shouldFlip={shouldFlip(index)}
-                  delayUntil={index}
-                >
-                  <span>{`${device.color} ${device.size}`}</span>
-                </Flipped> */}
                 <Flipped
                   flipId={`description-${index}-${2}`}
                   stagger="card-content"
@@ -105,18 +97,10 @@ function DeviceList() {
                   delayUntil={index}
                 >
                   <div>
-                    <h2>{`${device.make} ${device.model}`}</h2>
+                    <h2 className="device-make">{device.make}</h2>
+                    <h3 className="device-model">{device.model}</h3>
                   </div>
-                  {/* <span>{`${device.make} ${device.model}`}</span> */}
                 </Flipped>
-                {/* <Flipped
-                  flipId={`description-${index}-${1}`}
-                  stagger="card-content"
-                  shouldFlip={shouldFlip(index)}
-                  delayUntil={index}
-                >
-                  <span>{`${device.color} ${device.size}`}</span>
-                </Flipped> */}
                 <Flipped
                   flipId={`description-${index}-${2}`}
                   stagger="card-content"

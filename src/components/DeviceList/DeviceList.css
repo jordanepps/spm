@@ -20,8 +20,7 @@
 
 .list li {
     width: 95%;
-    margin: auto;
-    box-shadow: 0px 2px 10px #bcbcbc;
+    margin: 0 auto;
 }
 
 .list li+li {
@@ -34,6 +33,7 @@
     background-color: #d0d0d0;
     background-color: #f7f7f7;
     overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .list-item-content {
@@ -44,10 +44,9 @@
 }
 
 .avatar {
-    width: 4rem;
-    height: 4rem;
+    width: 70px;
+    height: 70px;
     border-radius: 100px;
-    margin-right: 2rem;
 }
 
 .avatar img {
@@ -68,8 +67,8 @@
 
 .expanded-list-item {
     cursor: pointer;
-    background-color: #d0d0d0;
     background-color: #f7f7f7;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .expanded-list-item-content {
@@ -89,6 +88,18 @@
     border-radius: 3px;
     background-color: lightgray;
     height: 5rem;
+}
+
+.device-make,
+.device-model {
+    margin: 0;
+    font-size: 16px;
+    display: block;
+    font-weight: normal;
+}
+
+.description {
+    margin: 0 auto;
 }
 
 /* content fade in animations */
@@ -117,8 +128,4 @@
 
 .additional-content>div+div {
     margin-top: 1rem;
-}
-
-.description span {
-    display: block;
 }
