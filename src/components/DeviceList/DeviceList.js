@@ -20,18 +20,18 @@ function DeviceList() {
   function ListItem({ device, index, onClick }) {
     return (
       <Flipped
-        flipId={`listItem-${index}`}
+        flipId={`list-item-${index}`}
         stagger="card"
         shouldInvert={shouldFlip(index)}
       >
-        <div className="listItem" onClick={() => onClick(index)}>
-          <Flipped inverseFlipId={`listItem-${index}`}>
-            <div className="listItemContent">
+        <div className="list-item" onClick={() => onClick(index)}>
+          <Flipped inverseFlipId={`list-item-${index}`}>
+            <div className="list-item-content">
               <Flipped
                 flipId={`avatar-${index}`}
                 stagger="card-content"
                 shouldFlip={shouldFlip(index)}
-                delayUntil={`listItem-${index}`}
+                delayUntil={`list-item-${index}`}
               >
                 <div className="avatar">
                   <img src={iphone} alt="iphone" />
@@ -44,7 +44,10 @@ function DeviceList() {
                   shouldFlip={shouldFlip(index)}
                   delayUntil={index}
                 >
-                  <span>{`${device.make} ${device.model}`}</span>
+                  <div>
+                    <h2>{`${device.make} ${device.model}`}</h2>
+                  </div>
+                  {/* <span>{`${device.make} ${device.model}`}</span> */}
                 </Flipped>
                 {/* <Flipped
                   flipId={`description-${index}-${1}`}
@@ -73,7 +76,7 @@ function DeviceList() {
   function ExpandedListItem({ device, index, onClick }) {
     return (
       <Flipped
-        flipId={`listItem-${index}`}
+        flipId={`list-item-${index}`}
         stagger="card"
         onStart={el => {
           setTimeout(() => {
@@ -81,9 +84,9 @@ function DeviceList() {
           }, 400);
         }}
       >
-        <div className="expandedListItem" onClick={() => onClick(index)}>
+        <div className="expanded-list-item" onClick={() => onClick(index)}>
           <Flipped inverseFlipId={`listItem-${index}`}>
-            <div className="expandedListContent">
+            <div className="expanded-list-item-content">
               <Flipped
                 flipId={`avatar-${index}`}
                 stagger="card-content"
@@ -101,7 +104,10 @@ function DeviceList() {
                   shouldFlip={shouldFlip(index)}
                   delayUntil={index}
                 >
-                  <span>{`${device.make} ${device.model}`}</span>
+                  <div>
+                    <h2>{`${device.make} ${device.model}`}</h2>
+                  </div>
+                  {/* <span>{`${device.make} ${device.model}`}</span> */}
                 </Flipped>
                 {/* <Flipped
                   flipId={`description-${index}-${1}`}
@@ -132,13 +138,8 @@ function DeviceList() {
     <Flipper
       flipKey={focused}
       className="staggered-list-content"
-      spring="gentle"
+      spring="stiff"
       decisionData={focused}
-      staggerConfig={{
-        card: {
-          reverse: focused !== null
-        }
-      }}
     >
       <ul className="list">
         {device.map((device, index) => (

@@ -19,14 +19,14 @@
     margin-top: 1rem;
 }
 
-.listItem {
+.list-item {
     width: 100%;
     cursor: pointer;
     background-color: #d0d0d0;
     overflow: hidden;
 }
 
-.listItemContent {
+.list-item-content {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -50,7 +50,7 @@
     margin: auto;
 }
 
-.description>div {
+/* .description>div {
     background-color: grey;
     width: 14rem;
     border-radius: 6px;
@@ -67,20 +67,20 @@
 
 .description>div+div {
     margin-top: 1rem;
-}
+} */
 
-.expandedListItem .description {
+.expanded-list-item .description {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.expandedListItem {
+.expanded-list-item {
     cursor: pointer;
     background-color: #d0d0d0;
 }
 
-.expandedListItemContent {
+.expanded-list-item-content {
     padding: 2rem;
     display: flex;
     flex-direction: column;
