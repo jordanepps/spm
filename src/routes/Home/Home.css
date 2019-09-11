@@ -1,0 +1,32 @@
+.home-container {
+    /* margin: 20px 0; */
+    /* padding: 15px; */
+    /* text-align: left; */
+    color: black;
+}
+
+.top-section {
+    /* background: rgb(235, 0, 0, .9); */
+    /* padding: 50px 15px; */
+    position: relative;
+}
+
+.top-section img {
+    width: 100%;
+}
+
+.home-container h1 {
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.home-container span {
+    /* width: 100%; */
+    max-width: 350px;
+    display: block;
+    font-size: 20px;
+    line-height: 26px;
+}
+
+
+/* #ed473f */

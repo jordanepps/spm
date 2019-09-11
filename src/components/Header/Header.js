@@ -4,7 +4,7 @@ import './Header.css';
 import logo from '../../img/logo.png';
 
 function Header() {
-  const [atTop, setAtTop] = useState(null);
+  const [atTop, setAtTop] = useState(true);
 
   window.addEventListener('scroll', function() {
     setAtTop(window.pageYOffset > 0 ? false : true);

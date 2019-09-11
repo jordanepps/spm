@@ -3,8 +3,8 @@ import './News.css';
 
 function News() {
   return (
-    <div>
-      <h1>News Page</h1>
+    <div className="news-container">
+      <h1>What's New</h1>
     </div>
   );
 }
