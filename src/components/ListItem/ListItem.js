@@ -1,5 +1,6 @@
 import React from 'react';
 import { Flipped } from 'react-flip-toolkit';
+import './ListItem.css';
 
 function ListItem({ device, index, onClick, shouldFlip, iphone }) {
   return (
@@ -39,7 +40,7 @@ function ListItem({ device, index, onClick, shouldFlip, iphone }) {
                 shouldFlip={shouldFlip(index)}
                 delayUntil={index}
               >
-                <span>{`$${device.price}.00 @ ${device.location}`}</span>
+                <span className="device-price">{`$${device.price}.00`}</span>
               </Flipped>
             </div>
           </div>

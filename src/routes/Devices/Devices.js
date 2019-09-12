@@ -6,7 +6,7 @@ function Devices() {
   return (
     <div className="device-container">
       <h1>Devices for sale</h1>
-      <form>
+      {/* <form>
         <div className="sort-container">
           <input type="radio" name="price-sort" id="descending" />
           <label htmlFor="descending">Descending</label>
@@ -17,7 +17,7 @@ function Devices() {
         <div className="filter-container">
           <input type="text" placeholder="filter" />
         </div>
-      </form>
+      </form> */}
       <DeviceList />
     </div>
   );
