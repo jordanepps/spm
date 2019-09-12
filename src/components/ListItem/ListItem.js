@@ -35,12 +35,12 @@ function ListItem({ device, index, onClick, shouldFlip, iphone }) {
                 </div>
               </Flipped>
               <Flipped
-                flipId={`description-${index}-${2}`}
+                flipId={`description-${index}-${1}`}
                 stagger="card-content"
                 shouldFlip={shouldFlip(index)}
                 delayUntil={index}
               >
-                <span className="device-price">{`$${device.price}.00`}</span>
+                <span className="device-price">{`$${device.price}`}</span>
               </Flipped>
             </div>
           </div>

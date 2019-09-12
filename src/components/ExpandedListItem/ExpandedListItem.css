@@ -1,0 +1,25 @@
+.description.expanded {
+    margin-top: 10px;
+}
+
+.device-make.expanded {
+    font-size: 22px;
+}
+
+.device-model.expanded,
+.device-price.expanded {
+    font-size: 24px;
+}
+
+.additional-content {
+    text-align: left;
+    font-size: 20px;
+}
+
+.additional-content p {
+    margin: 1px 0;
+}
+
+.additional-content span {
+    font-weight: 500;
+}
