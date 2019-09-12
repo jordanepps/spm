@@ -1,8 +1,10 @@
 import React from 'react';
 import './Home.css';
 
-function Home() {
-  function onClick() {}
+function Home({ history }) {
+  function onClick() {
+    history.push('/devices');
+  }
   return (
     <div className="home-container">
       <div className="top-section">

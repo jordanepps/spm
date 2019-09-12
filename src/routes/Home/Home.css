@@ -16,6 +16,7 @@
     margin-bottom: 85px;
     font-size: 40px;
     font-family: 'Roboto Condensed', sans-serif;
+    text-shadow: 0 1px 0 black;
 }
 
 .home-container span {
@@ -24,11 +25,13 @@
     font-size: 19px;
     line-height: 25px;
     margin: auto;
+    text-shadow: 0 1px 0 black;
 }
 
 .device-btn-container {
     /* margin: 20px auto; */
     margin-top: -15px;
+    cursor: pointer;
 }
 
 .device-btn-container button {
@@ -41,4 +44,5 @@
     border-radius: 4px;
     box-shadow: 0 1px 2px #DD1A13;
     border: none;
+    cursor: pointer;
 }

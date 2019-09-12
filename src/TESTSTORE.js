@@ -58,6 +58,16 @@ const phone = [
     size: '64 GB',
     location: 'garners ferry',
     condition: 'light scratches'
+  },
+  {
+    make: 'Samsung',
+    model: 'Galaxy Note 9',
+    color: 'Black',
+    carrier: 'verizon',
+    price: 499,
+    size: '64 GB',
+    location: 'garners ferry',
+    condition: 'light scratches'
   }
 ];
 
