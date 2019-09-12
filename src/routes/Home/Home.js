@@ -2,6 +2,7 @@ import React from 'react';
 import './Home.css';
 
 function Home() {
+  function onClick() {}
   return (
     <div className="home-container">
       <div className="top-section">
@@ -11,6 +12,9 @@ function Home() {
         <span>
           SmartPhone Medic is the smart choice for all of your repair needs
         </span>
+      </div>
+      <div className="device-btn-container">
+        <button onClick={onClick}>Devices for sale</button>
       </div>
     </div>
   );
