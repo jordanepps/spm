@@ -14,7 +14,20 @@ function Login({ history }) {
     setPage(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
-  return <div>Login</div>;
+  return (
+    <div>
+      <form>
+        <div>
+          <label>Email:</label>
+          <input />
+        </div>
+        <div>
+          <label>Password:</label>
+          <input />
+        </div>
+      </form>
+    </div>
+  );
 }
 
 export default Login;
