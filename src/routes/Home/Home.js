@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react';
+import { PageContext } from '../../context/Context';
 import './Home.css';
 
 function Home({ history }) {
+  const [page, setCurrentPage] = useContext(PageContext);
+  useEffect(() => {
+    setCurrentPage(true); // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page]);
+
   function onClick() {
     history.push('/devices');
   }

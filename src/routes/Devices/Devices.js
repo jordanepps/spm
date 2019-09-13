@@ -7,9 +7,8 @@ import './Devices.css';
 function Devices() {
   const [page, setCurrentPage] = useContext(PageContext);
   useEffect(() => {
-    setCurrentPage(true);
+    setCurrentPage(true); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
-  console.log(page);
 
   return (
     <div className="device-container">

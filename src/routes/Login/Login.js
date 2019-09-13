@@ -2,12 +2,16 @@ import React, { useContext, useEffect } from 'react';
 import { PageContext } from '../../context/Context';
 
 function Login({ history }) {
-  console.log(history.location.pathname);
+  //   console.log(history.location.pathname);
   const [page, setCurrentPage] = useContext(PageContext);
-  console.log(page);
+  //   console.log(page);
 
   useEffect(() => {
-    setCurrentPage(false);
+    function setPage() {
+      setCurrentPage(false);
+    }
+
+    setPage(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   return <div>Login</div>;
