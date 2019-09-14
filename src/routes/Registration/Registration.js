@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { PageContext } from '../../context/Context';
+import AuthApiService from '../../services/auth-api-service';
 
 function Registration() {
   const [page, setCurrentPage] = useContext(PageContext);
@@ -18,8 +19,32 @@ function Registration() {
     e.preventDefault();
     const { email, password, verify_password } = e.target;
 
-    if (password.value !== verify_password)
+    if (password.value !== verify_password.value)
       return setPasswordMatch('Password does not match');
+
+    setError(null);
+
+    AuthApiService.postUser({
+      email: email.value,
+      password: password.value
+    })
+      .then(user => {
+        email.value = password.value = verify_password.value = '';
+        console.log(user);
+      })
+      .catch(handleError);
+  }
+
+  function handleError(res) {
+    setError(res.error);
+  }
+
+  function renderError() {
+    return (
+      <div>
+        <h3>{error}</h3>
+      </div>
+    );
   }
 
   function resetPasswordMatch() {
@@ -37,6 +62,7 @@ function Registration() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        {!error ? '' : renderError()}
         <div>
           <label htmlFor="email">Email:</label>
           <input
