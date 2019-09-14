@@ -11,6 +11,7 @@ import News from '../../routes/News/News';
 import './App.css';
 import Login from '../../routes/Login/Login';
 import Inventory from '../../routes/Inventory/Inventory';
+import Registration from '../../routes/Registration/Registration';
 
 function App() {
   return (
@@ -24,6 +25,10 @@ function App() {
             <Route path="/devices" component={Devices} />
             <Route path="/news" component={News} />
             <PublicOnlyRoute path="/inventory-login" component={Login} />
+            <PublicOnlyRoute
+              path="/inventory-registration"
+              component={Registration}
+            />
             <PrivateRoute path="/inventory-manager" component={Inventory} />
           </Switch>
         </div>
