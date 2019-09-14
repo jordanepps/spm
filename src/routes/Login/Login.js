@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { PageContext } from '../../context/Context';
 import AuthApiService from '../../services/auth-api-service';
+import TokenService from '../../services/token-service';
 
 function Login({ history }) {
   //   console.log(history.location.pathname);
@@ -24,8 +25,9 @@ function Login({ history }) {
       password: password.value
     })
       .then(res => {
-        // email.value = password.value = '';
-        console.log(res);
+        email.value = password.value = '';
+        TokenService.saveAuthToken(res.authToken);
+        history.push('/inventory-manager');
       })
       .catch(handleError);
   }
