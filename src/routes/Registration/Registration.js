@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { PageContext } from '../../context/Context';
 import AuthApiService from '../../services/auth-api-service';
 
-function Registration() {
+function Registration({ history }) {
   const [page, setCurrentPage] = useContext(PageContext);
   const [error, setError] = useState(null);
   const [passwordMatch, setPasswordMatch] = useState(null);
@@ -30,7 +30,7 @@ function Registration() {
     })
       .then(user => {
         email.value = password.value = verify_password.value = '';
-        console.log(user);
+        history.push('/inventory-login');
       })
       .catch(handleError);
   }
