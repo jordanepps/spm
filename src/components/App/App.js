@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
+import PrivateRoute from '../Utils/PrivateRoute';
 import Header from '../Header/Header';
 import Navigation from '../Navigation/Navigation';
 // import Footer from '../Footer/Footer';
@@ -9,6 +10,7 @@ import Devices from '../../routes/Devices/Devices';
 import News from '../../routes/News/News';
 import './App.css';
 import Login from '../../routes/Login/Login';
+import Inventory from '../../routes/Inventory/Inventory';
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
             <Route path="/devices" component={Devices} />
             <Route path="/news" component={News} />
             <PublicOnlyRoute path="/inventory-login" component={Login} />
+            <PrivateRoute path="/inventory-manager" component={Inventory} />
           </Switch>
         </div>
 

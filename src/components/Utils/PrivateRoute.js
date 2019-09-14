@@ -2,20 +2,25 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import TokenService from '../../services/token-service';
 
-function PublicOnlyRoute({ component, ...props }) {
+function PrivateRoute({ component, ...props }) {
   const Component = component;
   return (
     <Route
       {...props}
       render={componentProps =>
         TokenService.hasAuthToken() ? (
-          <Redirect to={'/inventory-manager'} />
-        ) : (
           <Component {...componentProps} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/inventory-login',
+              state: { from: componentProps.location }
+            }}
+          />
         )
       }
     />
   );
 }
 
-export default PublicOnlyRoute;
+export default PrivateRoute;
