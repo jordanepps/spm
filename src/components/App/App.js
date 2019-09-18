@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import PrivateRoute from '../Utils/PrivateRoute';
 import Header from '../Header/Header';
@@ -30,6 +35,7 @@ function App() {
               component={Registration}
             />
             <PrivateRoute path="/inventory-manager" component={Inventory} />
+            <Redirect to="/" />
           </Switch>
         </div>
 

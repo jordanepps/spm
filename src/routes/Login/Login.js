@@ -4,7 +4,6 @@ import AuthApiService from '../../services/auth-api-service';
 import TokenService from '../../services/token-service';
 
 function Login({ history }) {
-  //   console.log(history.location.pathname);
   const [page, setCurrentPage] = useContext(PageContext);
   const [error, setError] = useState(null);
 
