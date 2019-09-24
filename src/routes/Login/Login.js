@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { PageContext } from '../../context/Context';
 import AuthApiService from '../../services/auth-api-service';
+import { Email, Password, SubmitButton } from '../../components/Utils/Utils';
 import TokenService from '../../services/token-service';
 
 function Login({ history }) {
@@ -47,30 +48,9 @@ function Login({ history }) {
     <div>
       <form onSubmit={handleSubmit}>
         {!error ? '' : renderError()}
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            autoComplete="email"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            autoComplete="new-password"
-            required
-          />
-        </div>
-
-        <div>
-          <button>Login</button>
-        </div>
+        <Email />
+        <Password />
+        <SubmitButton name="Login" />
       </form>
     </div>
   );

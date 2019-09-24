@@ -74,10 +74,6 @@ function Registration({ history }) {
         <Password reset={resetPasswordMatch} />
         <VerifyPassword reset={resetPasswordMatch} />
         <SubmitButton name="Register" />
-
-        {/* <div>
-          <button>Register</button>
-        </div> */}
       </form>
     </div>
   );
