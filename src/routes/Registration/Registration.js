@@ -1,6 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { PageContext } from '../../context/Context';
 import AuthApiService from '../../services/auth-api-service';
+import {
+  Email,
+  Password,
+  VerifyPassword,
+  SubmitButton
+} from '../../components/Utils/Utils';
 
 function Registration({ history }) {
   const [page, setCurrentPage] = useContext(PageContext);
@@ -63,42 +69,15 @@ function Registration({ history }) {
     <div>
       <form onSubmit={handleSubmit}>
         {!error ? '' : renderError()}
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            autoComplete="email"
-            required
-          />
-        </div>
+        <Email />
         {!passwordMatch ? '' : renderPasswordError()}
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            autoComplete="new-password"
-            required
-            onChange={resetPasswordMatch}
-          />
-        </div>
-        <div>
-          <label htmlFor="verify_password">Verify Password:</label>
-          <input
-            type="password"
-            name="verify_password"
-            id="verify_password"
-            autoComplete="new-password"
-            required
-            onChange={resetPasswordMatch}
-          />
-        </div>
-        <div>
+        <Password reset={resetPasswordMatch} />
+        <VerifyPassword reset={resetPasswordMatch} />
+        <SubmitButton name="Register" />
+
+        {/* <div>
           <button>Register</button>
-        </div>
+        </div> */}
       </form>
     </div>
   );
