@@ -3,7 +3,7 @@ import './Utils.css';
 
 export function Email() {
   return (
-    <div className="email-container">
+    <div className="input-container email">
       <label htmlFor="email">Email:</label>
       <input
         type="email"
@@ -18,7 +18,7 @@ export function Email() {
 
 export function Password({ reset }) {
   return (
-    <div className="password-container">
+    <div className="input-container password">
       <label htmlFor="password">Password:</label>
       <input
         type="password"
@@ -34,7 +34,7 @@ export function Password({ reset }) {
 
 export function VerifyPassword({ reset }) {
   return (
-    <div className="password-container verify-password">
+    <div className="input-container verify-password">
       <label htmlFor="verify_password">Verify Password:</label>
       <input
         type="password"
