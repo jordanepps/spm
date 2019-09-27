@@ -69,8 +69,8 @@ function Registration({ history }) {
     <div>
       <form onSubmit={handleSubmit}>
         {!error ? '' : renderError()}
-        <Email />
         {!passwordMatch ? '' : renderPasswordError()}
+        <Email />
         <Password reset={resetPasswordMatch} />
         <VerifyPassword reset={resetPasswordMatch} />
         <SubmitButton name="Register" />
