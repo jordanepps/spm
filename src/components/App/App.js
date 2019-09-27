@@ -17,6 +17,7 @@ import './App.css';
 import Login from '../../routes/Login/Login';
 import Inventory from '../../routes/Inventory/Inventory';
 import Registration from '../../routes/Registration/Registration';
+import Settings from '../../routes/Settings/Settings';
 
 function App() {
   return (
@@ -34,7 +35,15 @@ function App() {
               path="/inventory-registration"
               component={Registration}
             />
-            <PrivateRoute path="/inventory-manager" component={Inventory} />
+            <PrivateRoute
+              exact
+              path="/inventory-manager"
+              component={Inventory}
+            />
+            <PrivateRoute
+              path="/inventory-manager/settings"
+              component={Settings}
+            />
             <Redirect to="/" />
           </Switch>
         </div>
