@@ -11,8 +11,15 @@ const headers = {
 const AllowedApiService = {
   getAll: async set => {
     const response = await axios.get(url, { headers });
-
     set(response.data);
+  },
+  addEmail: async email => {
+    try {
+      const response = await axios.post(url, email, { headers });
+      return response.data;
+    } catch (err) {
+      return err.response.data.error;
+    }
   }
 };
 
