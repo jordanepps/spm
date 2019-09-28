@@ -46,7 +46,7 @@ function Allowed() {
       <button onClick={openModal}>Add Email</button>
       <div>
         {allowed.map(user => (
-          <div key={user.id}>
+          <div className="setting-card allowed" key={user.id}>
             <span>{user.email}</span>
             <button onClick={handleDeleteEmail}>Delete</button>
           </div>

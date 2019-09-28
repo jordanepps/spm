@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { PageContext } from '../../context/Context';
 import Allowed from '../../components/Allowed/Allowed';
+import './Settings.css';
 
 function Settings() {
   const [page, setCurrentPage] = useContext(PageContext);

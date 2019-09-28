@@ -1,0 +1,14 @@
+.setting-card {
+    width: 100%;
+    max-width: 200px;
+    margin: auto;
+}
+
+.setting-card.allowed span {
+    width: 60%;
+    float: left;
+}
+
+.setting-card.allowed button {
+    float: right;
+}
