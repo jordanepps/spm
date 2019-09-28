@@ -1,3 +1,8 @@
+.settings-container a {
+    display: block;
+    padding: 5px 0;
+}
+
 .setting-card {
     width: 100%;
     max-width: 200px;
