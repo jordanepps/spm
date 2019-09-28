@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { PageContext } from '../../context/Context';
-import Allowed from '../../components/Allowed/Allowed';
+// import Allowed from '../../components/Allowed/Allowed';
 import './Settings.css';
 
 function Settings() {

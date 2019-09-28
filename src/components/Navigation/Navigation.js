@@ -40,28 +40,6 @@ function Navigation() {
       </Menu>
     );
   }
-
-  // return (
-  //   <Menu
-  //     right
-  //     outerContainerId={'App'}
-  //     pageWrapId={'main-container'}
-  //     isOpen={menuOpen}
-  //   >
-  //     <NavLink to="/" onClick={handleMenu}>
-  //       Home
-  //     </NavLink>
-  //     <NavLink to="/about" onClick={handleMenu}>
-  //       About
-  //     </NavLink>
-  //     <NavLink to="/devices" onClick={handleMenu}>
-  //       Devices
-  //     </NavLink>
-  //     <NavLink to="/news" onClick={handleMenu}>
-  //       News
-  //     </NavLink>
-  //   </Menu>
-  // );
   return page ? renderNav() : '';
 }
 
