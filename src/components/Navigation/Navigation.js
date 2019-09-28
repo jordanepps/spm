@@ -40,7 +40,27 @@ function Navigation() {
       </Menu>
     );
   }
-  return page ? renderNav() : '';
+
+  function renderPrivateNav() {
+    return (
+      <Menu
+        right
+        outerContainerId={'App'}
+        pageWrapId={'main-container'}
+        isOpen={menuOpen}
+      >
+        <NavLink to="/inventory-manager" onClick={handleMenu}>
+          Inventory Home
+        </NavLink>
+        <NavLink to="/inventory-manager/settings" onClick={handleMenu}>
+          Settings
+        </NavLink>
+        <p className="bm-item">Logout</p>
+      </Menu>
+    );
+  }
+
+  return page ? renderNav() : renderPrivateNav();
 }
 
 export default Navigation;
