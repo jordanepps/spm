@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Modal from 'react-modal';
 import AllowedApiService from '../../services/allowed-api-service';
+import { PageContext } from '../../context/Context';
 import { Email, SubmitButton } from '../../components/Utils/Utils';
 
 Modal.setAppElement('#root');
@@ -17,20 +18,35 @@ const customStyles = {
 };
 
 function Allowed() {
+  const [page, setCurrentPage] = useContext(PageContext);
   const [allowed, setAllowed] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(null);
 
   useEffect(() => {
-    AllowedApiService.getAll(setAllowed);
-  }, []);
+    function setPage() {
+      setCurrentPage(false);
+    }
 
-  function handleAddEmail(e) {
+    AllowedApiService.getAll(setAllowed);
+    setPage(); // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page]);
+
+  function handleAddEmail() {
+    setDeleteModal(null);
+    openModal();
+  }
+
+  function addEmail(e) {
     e.preventDefault();
-    // console.log({ email: e.target.email.value });
     console.log(AllowedApiService.addEmail({ email: e.target.email.value }));
   }
 
-  function handleDeleteEmail() {}
+  function handleDeleteEmail(id) {
+    console.log(allowed[id - 1].email);
+    setDeleteModal(id);
+    openModal();
+  }
 
   function openModal() {
     setModalOpen(true);
@@ -43,12 +59,12 @@ function Allowed() {
   return (
     <div>
       <h3>Emails allowed to register</h3>
-      <button onClick={openModal}>Add Email</button>
+      <button onClick={handleAddEmail}>Add Email</button>
       <div>
         {allowed.map(user => (
           <div className="setting-card allowed" key={user.id}>
             <span>{user.email}</span>
-            <button onClick={handleDeleteEmail}>Delete</button>
+            <button onClick={() => handleDeleteEmail(user.id)}>Delete</button>
           </div>
         ))}
       </div>
@@ -59,10 +75,19 @@ function Allowed() {
         contentLabel="Add Allowed Modal"
         closeTimeoutMS={2000}
       >
-        <form onSubmit={handleAddEmail}>
-          <Email />
-          <SubmitButton name="Add email" />
-        </form>
+        {deleteModal ? (
+          <div>
+            <h3>
+              Are you sure you want to delete "{allowed[deleteModal - 1].email}
+              "?
+            </h3>
+          </div>
+        ) : (
+          <form onSubmit={addEmail}>
+            <Email />
+            <SubmitButton name="Add email" />
+          </form>
+        )}
       </Modal>
     </div>
   );
