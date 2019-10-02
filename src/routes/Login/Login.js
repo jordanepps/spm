@@ -10,7 +10,7 @@ function Login({ history }) {
 
   useEffect(() => {
     function setPage() {
-      setCurrentPage(false);
+      setCurrentPage(true);
     }
 
     setPage(); // eslint-disable-next-line react-hooks/exhaustive-deps
