@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import AllowedApiService from '../../services/allowed-api-service';
-import { Email, SubmitButton } from '../Utils/Utils';
+import { Email, SubmitButton } from '../../components/Utils/Utils';
 
 Modal.setAppElement('#root');
 

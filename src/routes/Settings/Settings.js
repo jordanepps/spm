@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { PageContext } from '../../context/Context';
-// import Allowed from '../../components/Allowed/Allowed';
 import './Settings.css';
 
-function Settings() {
+function Settings({ history }) {
   const [page, setCurrentPage] = useContext(PageContext);
+  const path = history.location.pathname;
 
   useEffect(() => {
     function setPage() {
@@ -18,8 +18,7 @@ function Settings() {
   return (
     <div className="settings-container">
       <h2>Settings</h2>
-      {/* <Allowed /> */}
-      <Link to="/">Allowed Users</Link>
+      <Link to={`${path}/allowed`}>Allowed Users</Link>
       <Link to="/">Locations</Link>
       <Link to="/">Device Make</Link>
       <Link to="/">Device Model</Link>

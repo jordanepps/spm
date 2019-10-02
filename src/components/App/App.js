@@ -18,6 +18,7 @@ import Login from '../../routes/Login/Login';
 import Inventory from '../../routes/Inventory/Inventory';
 import Registration from '../../routes/Registration/Registration';
 import Settings from '../../routes/Settings/Settings';
+import Allowed from '../../routes/Allowed/Allowed';
 
 function App() {
   return (
@@ -41,8 +42,14 @@ function App() {
               component={Inventory}
             />
             <PrivateRoute
+              exact
               path="/inventory-manager/settings"
               component={Settings}
+            />
+            <PrivateRoute
+              exact
+              path="/inventory-manager/settings/allowed"
+              component={Allowed}
             />
             <Redirect to="/" />
           </Switch>
