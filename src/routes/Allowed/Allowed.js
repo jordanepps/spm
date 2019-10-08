@@ -5,6 +5,8 @@ import { PageContext } from '../../context/Context';
 import AllowedItem from '../../components/AllowedItem/AllowedItem';
 import AllowedAddForm from '../../components/AllowedAddForm/AllowedAddForm';
 import AllowedDeleteForm from '../../components/AllowedDeleteForm/AllowedDeleteForm';
+import { Button } from '../../components/Utils/Utils';
+import './Allowed.css';
 
 Modal.setAppElement('#root');
 
@@ -27,6 +29,15 @@ function Allowed() {
   const [userToDelete, setUserToDelete] = useState(null);
   const [addError, setAddError] = useState(null);
 
+  useEffect(() => {
+    function setPage() {
+      setCurrentPage(false);
+    }
+
+    AllowedApiService.getAll(setAllowed);
+    setPage(); // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loadPage]);
+
   function load() {
     closeModal();
     setLoadPage(loadPage + 1);
@@ -39,15 +50,6 @@ function Allowed() {
   function closeModal() {
     setModalOpen(false);
   }
-
-  useEffect(() => {
-    function setPage() {
-      setCurrentPage(false);
-    }
-
-    AllowedApiService.getAll(setAllowed);
-    setPage(); // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loadPage]);
 
   function handleAddEmail() {
     setUserToDelete(null);
@@ -75,9 +77,8 @@ function Allowed() {
   }
 
   return (
-    <div>
+    <div className="allowed-container">
       <h3>Emails allowed to register</h3>
-      <button onClick={handleAddEmail}>Add Email</button>
       <div>
         {allowed.map(user => (
           <AllowedItem
@@ -87,11 +88,12 @@ function Allowed() {
           />
         ))}
       </div>
+      <Button name="Add Email" onClick={handleAddEmail} />
       <Modal
         isOpen={modalOpen}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel="Add Allowed Modal"
+        contentLabel="Add/Delete Allowed Modal"
       >
         {userToDelete ? (
           <AllowedDeleteForm

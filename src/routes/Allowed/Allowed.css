@@ -1,0 +1,9 @@
+.allowed-container {
+    padding: 0 15px;
+}
+
+.allowed-container h3 {
+    text-align: left;
+    font-size: 22px;
+    font-weight: 500;
+}

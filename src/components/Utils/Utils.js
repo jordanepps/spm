@@ -48,9 +48,17 @@ export function VerifyPassword({ reset }) {
   );
 }
 
+export function Button({ name, onClick }) {
+  return (
+    <div className="btn-container">
+      <button onClick={onClick}>{name}</button>
+    </div>
+  );
+}
+
 export function SubmitButton({ name }) {
   return (
-    <div className="submit-btn-container">
+    <div className="btn-container submit">
       <button>{name}</button>
     </div>
   );
