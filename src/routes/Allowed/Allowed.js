@@ -41,6 +41,7 @@ function Allowed() {
 
   function handleAddEmail() {
     setDeleteModal(null);
+    setUserToDelete(null);
     openModal();
   }
 
@@ -62,13 +63,13 @@ function Allowed() {
     openModal();
   }
 
-  function deleteEmail(id) {
-    //Close Modal
+  function deleteEmail() {
     closeModal();
+    //Get ID of email to be deleted
+    const id = allowed.filter(users => users.email === userToDelete)[0].id;
+
     //Delete email from database
     AllowedApiService.deleteEmail(id).then(() => {
-      //Show status
-
       //Rerender
       load();
     });
@@ -100,14 +101,12 @@ function Allowed() {
         style={customStyles}
         contentLabel="Add Allowed Modal"
       >
-        {deleteModal ? (
+        {userToDelete ? (
           <div>
             <h3>Are you sure you want to delete "{userToDelete}"?</h3>
             <div>
               <button onClick={closeModal}>Cancel</button>
-              <button onClick={() => deleteEmail(allowed[deleteModal - 1].id)}>
-                Delete
-              </button>
+              <button onClick={() => deleteEmail()}>Delete</button>
             </div>
           </div>
         ) : (
