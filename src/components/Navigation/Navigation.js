@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { slide as Menu } from 'react-burger-menu';
+import TokenService from '../../services/token-service';
 import './Navigation.css';
 
 import { PageContext } from '../../context/Context';
@@ -15,6 +16,11 @@ function Navigation() {
 
   function handleMenu() {
     setMenuOpen(!menuOpen);
+  }
+
+  function handleLogout() {
+    setMenuOpen(!menuOpen);
+    TokenService.clearAuthToken();
   }
 
   function renderNav() {
@@ -55,7 +61,9 @@ function Navigation() {
         <NavLink to="/inventory-manager/settings" onClick={handleMenu}>
           Settings
         </NavLink>
-        <p className="bm-item">Logout</p>
+        <p className="bm-item" onClick={handleLogout}>
+          Logout
+        </p>
       </Menu>
     );
   }

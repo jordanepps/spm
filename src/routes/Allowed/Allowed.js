@@ -22,6 +22,7 @@ const customStyles = {
 };
 
 function Allowed() {
+  // eslint-disable-next-line
   const [page, setCurrentPage] = useContext(PageContext);
   const [loadPage, setLoadPage] = useState(1);
   const [allowed, setAllowed] = useState([]);
@@ -79,7 +80,7 @@ function Allowed() {
   return (
     <div className="allowed-container">
       <h3>Emails allowed to register</h3>
-      <div>
+      <div className="allowed-list-container">
         {allowed.map(user => (
           <AllowedItem
             key={user.id}

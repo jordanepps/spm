@@ -59,7 +59,8 @@ export function Button({ name, onClick }) {
 export function SubmitButton({ name }) {
   return (
     <div className="btn-container submit">
-      <button>{name}</button>
+      {/* <button>{name}</button> */}
+      <input type="submit" value={name} />
     </div>
   );
 }
