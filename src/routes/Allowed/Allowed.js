@@ -22,7 +22,6 @@ function Allowed() {
   const [loadPage, setLoadPage] = useState(1);
   const [allowed, setAllowed] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
-  const [deleteModal, setDeleteModal] = useState(null);
   const [userToDelete, setUserToDelete] = useState(null);
   const [addError, setAddError] = useState(null);
 
@@ -40,7 +39,6 @@ function Allowed() {
   }, [loadPage]);
 
   function handleAddEmail() {
-    setDeleteModal(null);
     setUserToDelete(null);
     openModal();
   }
@@ -58,7 +56,6 @@ function Allowed() {
   }
 
   function handleDeleteEmail(user) {
-    setDeleteModal(user.id);
     setUserToDelete(user.email);
     openModal();
   }
