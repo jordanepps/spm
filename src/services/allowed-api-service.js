@@ -20,6 +20,14 @@ const AllowedApiService = {
     } catch (err) {
       return err.response.data.error;
     }
+  },
+  deleteEmail: async id => {
+    try {
+      const response = await axios.delete(`${url}/${id}`, { headers });
+      return response.data;
+    } catch (err) {
+      return err.response.data.error;
+    }
   }
 };
 

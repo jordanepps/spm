@@ -43,9 +43,16 @@ function Allowed() {
   }
 
   function handleDeleteEmail(id) {
-    console.log(allowed[id - 1].email);
     setDeleteModal(id);
     openModal();
+  }
+
+  function deleteEmail(id) {
+    console.log(id);
+    //Delete email from database
+    //Close Modal
+    //Show status
+    //Rerender page
   }
 
   function openModal() {
@@ -73,7 +80,6 @@ function Allowed() {
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Add Allowed Modal"
-        closeTimeoutMS={2000}
       >
         {deleteModal ? (
           <div>
@@ -81,6 +87,12 @@ function Allowed() {
               Are you sure you want to delete "{allowed[deleteModal - 1].email}
               "?
             </h3>
+            <div>
+              <button onClick={closeModal}>Cancel</button>
+              <button onClick={() => deleteEmail(allowed[deleteModal - 1].id)}>
+                Delete
+              </button>
+            </div>
           </div>
         ) : (
           <form onSubmit={addEmail}>
