@@ -2,7 +2,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import Modal from 'react-modal';
 import AllowedApiService from '../../services/allowed-api-service';
 import { PageContext } from '../../context/Context';
-import { Email } from '../../components/Utils/Utils';
+import AllowedItem from '../../components/AllowedItem/AllowedItem';
+import AllowedAddForm from '../../components/AllowedAddForm/AllowedAddForm';
+import AllowedDeleteForm from '../../components/AllowedDeleteForm/AllowedDeleteForm';
 
 Modal.setAppElement('#root');
 
@@ -25,9 +27,18 @@ function Allowed() {
   const [userToDelete, setUserToDelete] = useState(null);
   const [addError, setAddError] = useState(null);
 
-  const load = () => {
+  function load() {
+    closeModal();
     setLoadPage(loadPage + 1);
-  };
+  }
+
+  function openModal() {
+    setModalOpen(true);
+  }
+
+  function closeModal() {
+    setModalOpen(false);
+  }
 
   useEffect(() => {
     function setPage() {
@@ -46,13 +57,9 @@ function Allowed() {
   function addEmail(e) {
     e.preventDefault();
     setAddError(null);
-    AllowedApiService.addEmail({ email: e.target.email.value }).then(res => {
-      if (res.id) {
-        closeModal();
-        load();
-      }
-      setAddError(res);
-    });
+    AllowedApiService.addEmail({ email: e.target.email.value }).then(res =>
+      res.id ? load() : setAddError(res)
+    );
   }
 
   function handleDeleteEmail(user) {
@@ -61,23 +68,10 @@ function Allowed() {
   }
 
   function deleteEmail() {
-    closeModal();
     //Get ID of email to be deleted
     const id = allowed.filter(users => users.email === userToDelete)[0].id;
-
     //Delete email from database
-    AllowedApiService.deleteEmail(id).then(() => {
-      //Rerender
-      load();
-    });
-  }
-
-  function openModal() {
-    setModalOpen(true);
-  }
-
-  function closeModal() {
-    setModalOpen(false);
+    AllowedApiService.deleteEmail(id).then(load);
   }
 
   return (
@@ -86,10 +80,11 @@ function Allowed() {
       <button onClick={handleAddEmail}>Add Email</button>
       <div>
         {allowed.map(user => (
-          <div className="setting-card allowed" key={user.id}>
-            <span>{user.email}</span>
-            <button onClick={() => handleDeleteEmail(user)}>Delete</button>
-          </div>
+          <AllowedItem
+            key={user.id}
+            user={user}
+            handleDelete={handleDeleteEmail}
+          />
         ))}
       </div>
       <Modal
@@ -99,20 +94,17 @@ function Allowed() {
         contentLabel="Add Allowed Modal"
       >
         {userToDelete ? (
-          <div>
-            <h3>Are you sure you want to delete "{userToDelete}"?</h3>
-            <div>
-              <button onClick={closeModal}>Cancel</button>
-              <button onClick={() => deleteEmail()}>Delete</button>
-            </div>
-          </div>
+          <AllowedDeleteForm
+            userToDelete={userToDelete}
+            closeModal={closeModal}
+            deleteEmail={deleteEmail}
+          />
         ) : (
-          <form onSubmit={addEmail}>
-            <p>{addError}</p>
-            <Email />
-            <p onClick={closeModal}>Cancel</p>
-            <input type="submit" value="Add" />
-          </form>
+          <AllowedAddForm
+            addEmail={addEmail}
+            addError={addError}
+            closeModal={closeModal}
+          />
         )}
       </Modal>
     </div>
