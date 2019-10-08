@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import Modal from 'react-modal';
 import AllowedApiService from '../../services/allowed-api-service';
 import { PageContext } from '../../context/Context';
-import { Email, SubmitButton } from '../../components/Utils/Utils';
+import { Email } from '../../components/Utils/Utils';
 
 Modal.setAppElement('#root');
 
@@ -24,6 +24,7 @@ function Allowed() {
   const [modalOpen, setModalOpen] = useState(false);
   const [deleteModal, setDeleteModal] = useState(null);
   const [userToDelete, setUserToDelete] = useState(null);
+  const [addError, setAddError] = useState(null);
 
   const load = () => {
     setLoadPage(loadPage + 1);
@@ -45,7 +46,14 @@ function Allowed() {
 
   function addEmail(e) {
     e.preventDefault();
-    // AllowedApiService.addEmail({ email: e.target.email.value });
+    setAddError(null);
+    AllowedApiService.addEmail({ email: e.target.email.value }).then(res => {
+      if (res.id) {
+        closeModal();
+        load();
+      }
+      setAddError(res);
+    });
   }
 
   function handleDeleteEmail(user) {
@@ -104,8 +112,10 @@ function Allowed() {
           </div>
         ) : (
           <form onSubmit={addEmail}>
+            <p>{addError}</p>
             <Email />
-            <SubmitButton name="Add email" />
+            <p onClick={closeModal}>Cancel</p>
+            <input type="submit" value="Add" />
           </form>
         )}
       </Modal>
