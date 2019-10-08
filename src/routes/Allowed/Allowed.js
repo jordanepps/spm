@@ -19,9 +19,15 @@ const customStyles = {
 
 function Allowed() {
   const [page, setCurrentPage] = useContext(PageContext);
+  const [loadPage, setLoadPage] = useState(1);
   const [allowed, setAllowed] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [deleteModal, setDeleteModal] = useState(null);
+  const [userToDelete, setUserToDelete] = useState(null);
+
+  const load = () => {
+    setLoadPage(loadPage + 1);
+  };
 
   useEffect(() => {
     function setPage() {
@@ -30,7 +36,7 @@ function Allowed() {
 
     AllowedApiService.getAll(setAllowed);
     setPage(); // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page]);
+  }, [loadPage]);
 
   function handleAddEmail() {
     setDeleteModal(null);
@@ -39,20 +45,25 @@ function Allowed() {
 
   function addEmail(e) {
     e.preventDefault();
-    console.log(AllowedApiService.addEmail({ email: e.target.email.value }));
+    // AllowedApiService.addEmail({ email: e.target.email.value });
   }
 
-  function handleDeleteEmail(id) {
-    setDeleteModal(id);
+  function handleDeleteEmail(user) {
+    setDeleteModal(user.id);
+    setUserToDelete(user.email);
     openModal();
   }
 
   function deleteEmail(id) {
-    console.log(id);
-    //Delete email from database
     //Close Modal
-    //Show status
-    //Rerender page
+    closeModal();
+    //Delete email from database
+    AllowedApiService.deleteEmail(id).then(() => {
+      //Show status
+
+      //Rerender
+      load();
+    });
   }
 
   function openModal() {
@@ -71,7 +82,7 @@ function Allowed() {
         {allowed.map(user => (
           <div className="setting-card allowed" key={user.id}>
             <span>{user.email}</span>
-            <button onClick={() => handleDeleteEmail(user.id)}>Delete</button>
+            <button onClick={() => handleDeleteEmail(user)}>Delete</button>
           </div>
         ))}
       </div>
@@ -83,10 +94,7 @@ function Allowed() {
       >
         {deleteModal ? (
           <div>
-            <h3>
-              Are you sure you want to delete "{allowed[deleteModal - 1].email}
-              "?
-            </h3>
+            <h3>Are you sure you want to delete "{userToDelete}"?</h3>
             <div>
               <button onClick={closeModal}>Cancel</button>
               <button onClick={() => deleteEmail(allowed[deleteModal - 1].id)}>
