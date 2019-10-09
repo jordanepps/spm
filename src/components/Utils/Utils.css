@@ -66,3 +66,17 @@ form {
     border: 1px solid #eb0000;
     color: white;
 }
+
+.modal-btn-container {
+    width: 50%;
+    margin-left: 50%;
+    float: right;
+    text-decoration: underline;
+    font-size: 16px;
+}
+
+.modal-btn-container span {
+    text-decoration: underline;
+    border: none;
+    cursor: pointer;
+}

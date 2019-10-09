@@ -72,3 +72,12 @@ export function SubmitButton({ name }) {
     </div>
   );
 }
+
+export function ModalButtons({ name, cancel, modalAction }) {
+  return (
+    <div className="modal-btn-container">
+      <span onClick={cancel}>Cancel</span>
+      <button onClick={modalAction}>{name}</button>
+    </div>
+  );
+}
