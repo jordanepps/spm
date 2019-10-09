@@ -4,7 +4,7 @@ import './AllowedItem.css';
 function AllowedItem({ user, handleDelete }) {
   return (
     <div className="setting-card-allowed">
-      <span>{user.email}</span>
+      <p>{user.email}</p>
       <button onClick={() => handleDelete(user)}>Delete</button>
     </div>
   );

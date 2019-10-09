@@ -50,7 +50,7 @@ function Login({ history }) {
         {!error ? '' : renderError()}
         <Email />
         <Password />
-        <SubmitButton name="Login" onClick={handleSubmit} />
+        <SubmitButton name="Login" />
       </form>
     </div>
   );

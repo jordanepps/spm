@@ -1,7 +1,32 @@
 .setting-card-allowed {
-    margin-bottom: 15px;
+    padding: 14px;
+    /* background: white; */
+    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); */
+    max-width: 330px;
+    margin: 0 auto 15px;
+    border-bottom: 1px solid #eb0000;
+    text-align: left;
+    position: relative;
+
 }
 
-.setting-card-allowed span {
-    font-size: 18px;
+.setting-card-allowed p {
+    display: inline;
+    padding-bottom: 8px;
+    /* display: block; */
+}
+
+.setting-card-allowed button {
+    position: absolute;
+    right: 16px;
+    bottom: 7px;
+    /* margin-left: 40px; */
+    padding: 7px;
+    color: white;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #727272;
+    /* border: 2px solid #444444;
+    border: 2px solid #eb0000; */
+    cursor: pointer;
 }
