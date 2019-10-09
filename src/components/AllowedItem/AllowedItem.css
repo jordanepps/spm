@@ -12,17 +12,3 @@
     display: inline;
     padding-bottom: 8px;
 }
-
-.modal-btn-container {
-    width: 50%;
-    margin-left: 50%;
-    float: right;
-    text-decoration: underline;
-    font-size: 16px;
-}
-
-.modal-btn-container.cancel {
-    text-decoration: underline;
-    border: none;
-    color: red;
-}
